@@ -28,5 +28,6 @@ public class StringLengthDemo {
 		invalidPayloadFilePath = "strings/example/stringLengthInvalidContent2.json";
 		jsonPayload = FileUtil.readFileContentFromClassPath(invalidPayloadFilePath);
 		JsonSchemaUtil.validateAndPrint(jsonPayload, jsonSchema);
+		
 	}
 }

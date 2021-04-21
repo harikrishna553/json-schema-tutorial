@@ -8,8 +8,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
-import com.fasterxml.jackson.module.jsonSchema.JsonSchemaGenerator;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
@@ -19,13 +17,6 @@ import com.github.fge.jsonschema.main.JsonValidator;
 public class JsonSchemaUtil {
 	private static final JsonValidator VALIDATOR = JsonSchemaFactory.byDefault().getValidator();
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
-	public static String getJsonSchema(Class<?> type) throws JsonProcessingException {
-		JsonSchemaGenerator schemaGen = new JsonSchemaGenerator(OBJECT_MAPPER);
-		JsonSchema schema = schemaGen.generateSchema(type);
-		String schemaString = OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(schema);
-		return schemaString;
-	}
 
 	public static ProcessingReport validateJson(String jsonDocument, String jsonSchema)
 			throws JsonMappingException, JsonProcessingException, ProcessingException {
