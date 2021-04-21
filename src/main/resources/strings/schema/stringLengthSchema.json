@@ -1,0 +1,14 @@
+{
+	"$schema": "http://json-schema.org/draft-08/schema#",
+	"type": "object",
+	"title": "Demo Application",
+	"description": "Demo Application",
+	"properties": {
+		"name": {
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 8
+		}
+	}
+}
+
